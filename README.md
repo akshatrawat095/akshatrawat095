@@ -1,7 +1,7 @@
 # Akshat Rawat
 
 [![Linux Kernel](https://img.shields.io/badge/Linux_Kernel-v7.4--rc1-222222?style=flat-square&logo=linux&logoColor=white)](https://github.com/torvalds/linux)
-[![Mainline](https://img.shields.io/badge/Mainline_Status-Merged_by_Linus-success?style=flat-square&logo=git&logoColor=white)](https://github.com/torvalds/linux/commit/9b6f2eabc8372659cb4526d152c92e92c46f1406)
+[![Mainline](https://img.shields.io/badge/Mainline_Status-Merged_by_Linus-success?style=flat-square&logo=git&logoColor=white)](https://github.com/torvalds/linux/commit/9b6f2eabc8371dea951c244f4aa9e013f36de9f8)
 [![C](https://img.shields.io/badge/C-C99%2FC11-00599C?style=flat-square&logo=c&logoColor=white)](https://kernel.org)
 [![Lore Archive](https://img.shields.io/badge/LKML-Public_Archive-orange?style=flat-square)](https://lore.kernel.org/all/?q=Akshat+Rawat)
 
@@ -20,7 +20,7 @@ Undergraduate Computer Science & Engineering student focusing on Linux kernel in
 
 - **Micro Crystal RV-3028 RTC Driver Modernization**  
   * Replaced legacy `sprintf()` calls with buffer-safe `sysfs_emit()` in sysfs attribute callbacks (`timestamp0_show`, `timestamp0_count_show`) to enforce `PAGE_SIZE` boundary checking per `Documentation/filesystems/sysfs.rst`.
-  * Reviewed and applied by RTC maintainer Alexandre Belloni, prompting a subsequent subsystem-wide cleanup sweep across 10 sibling RTC drivers. Merged into mainline for **Linux 7.4-rc1** by **Linus Torvalds** ([Merge Commit `9b6f2eabc837`](https://github.com/torvalds/linux/commit/9b6f2eabc8372659cb4526d152c92e92c46f1406)).
+  * Reviewed and applied by RTC maintainer Alexandre Belloni, prompting a subsequent subsystem-wide cleanup sweep across 10 sibling RTC drivers. Merged into mainline for **Linux 7.4-rc1** by **Linus Torvalds** ([Merge Commit `9b6f2eabc837`](https://github.com/torvalds/linux/commit/9b6f2eabc8371dea951c244f4aa9e013f36de9f8)).
 
 - **LED Flash Class Subsystem Modernization**  
   * Completed the sysfs modernization of `drivers/leds/led-class-flash.c` by migrating remaining `_show()` attributes (`flash_brightness`, `max_flash_brightness`, `flash_strobe`, `flash_timeout`, `max_flash_timeout`) to buffer-safe `sysfs_emit()`.
