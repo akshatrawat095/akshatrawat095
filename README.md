@@ -15,8 +15,13 @@ Undergraduate Computer Science & Engineering student focusing on Linux kernel in
 | :--- | :--- | :--- | :--- |
 | **RTC** | `drivers/rtc/rtc-rv3028.c` | Buffer safety: `sprintf()` → `sysfs_emit()` | **Merged by Linus Torvalds** ([`55bb5877494d`](https://github.com/torvalds/linux/commit/55bb5877494d6c99898b959aa593663ce4676f4e)) · `v7.4-rc1` |
 | **LEDs** | `drivers/leds/led-class-flash.c` | Buffer safety: `sprintf()` → `sysfs_emit()` | **In Review** ([Mailing List](https://lore.kernel.org/linux-leds/20261101033427.442-1-akshatrawat095@gmail.com/)) · Passed Sashiko CI |
+| **Watchdog** | `drivers/watchdog/omap_wdt.c` | Concurrency: `guard(mutex)` RAII modernization | **Submitted** ([Mailing List](https://lore.kernel.org/linux-watchdog/20261107063151.441-1-akshatrawat095@gmail.com/)) |
 
 #### Details
+
+- **TI OMAP Watchdog Synchronization Modernization**  
+  * Replaced manual `mutex_lock()` and `mutex_unlock()` across all 7 lifecycle callbacks (`start`, `stop`, `ping`, `set_timeout`, `shutdown`, `suspend`, `resume`) with scoped `guard(mutex)` from `<linux/cleanup.h>`.
+  * Eliminated 14 boilerplate lock management lines with zero behavioral or timing regressions. Verified with `checkpatch.pl` (0 errors, 0 warnings).
 
 - **Micro Crystal RV-3028 RTC Driver Modernization**  
   * Replaced legacy `sprintf()` calls with buffer-safe `sysfs_emit()` in sysfs attribute callbacks (`timestamp0_show`, `timestamp0_count_show`) to enforce `PAGE_SIZE` boundary checking per `Documentation/filesystems/sysfs.rst`.
@@ -31,7 +36,7 @@ Undergraduate Computer Science & Engineering student focusing on Linux kernel in
 ### Technical Focus
 
 - **Systems & Languages**: C (Linux Kernel Style), POSIX APIs, Bash, Python
-- **Kernel Subsystems**: Real-Time Clocks (RTC), LED Subsystem, Sysfs Architecture, Character & Platform Devices
+- **Kernel Subsystems**: Real-Time Clocks (RTC), LED Subsystem, Watchdog Architecture, Sysfs & RAII Synchronization Primitives
 - **Upstream Workflow**: Git (`git send-email`, `git format-patch`), LKML / Subsystem Mailing Lists (`vger.kernel.org`), `checkpatch.pl`
 
 ---
