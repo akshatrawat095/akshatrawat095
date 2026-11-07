@@ -14,8 +14,8 @@ Undergraduate Computer Science & Engineering student focusing on Linux kernel in
 | Subsystem | Driver / File | Change | Upstream Status |
 | :--- | :--- | :--- | :--- |
 | **RTC** | `drivers/rtc/rtc-rv3028.c` | Buffer safety: `sprintf()` → `sysfs_emit()` | **Merged by Linus Torvalds** ([`55bb5877494d`](https://github.com/torvalds/linux/commit/55bb5877494d6c99898b959aa593663ce4676f4e)) · `v7.4-rc1` |
-| **RTC** | `drivers/rtc/rtc-as3722.c` | Robustness: propagate `platform_get_irq()` errors | **Submitted** ([Mailing List](https://lore.kernel.org/linux-rtc/20261107160839.422-1-akshatrawat095@gmail.com/)) |
-| **LEDs** | `drivers/leds/led-class-flash.c` | Buffer safety: `sprintf()` → `sysfs_emit()` | **In Review** ([Mailing List](https://lore.kernel.org/linux-leds/20261101033427.442-1-akshatrawat095@gmail.com/)) · Passed Sashiko CI |
+| **RTC** | `drivers/rtc/rtc-as3722.c` | Robustness: propagate `platform_get_irq()` errors | **Submitted** ([`766f1090fa9d`](https://github.com/akshatrawat095/linux/commit/766f1090fa9d)) · [Mailing List](https://lore.kernel.org/linux-rtc/20261107160839.422-1-akshatrawat095@gmail.com/) |
+| **LEDs** | `drivers/leds/led-class-flash.c` | Buffer safety: `sprintf()` → `sysfs_emit()` | **In Review** ([`c9b077f6c301`](https://github.com/akshatrawat095/linux/commit/c9b077f6c301)) · [Mailing List](https://lore.kernel.org/linux-leds/20261101033427.442-1-akshatrawat095@gmail.com/) |
 
 #### Details
 
