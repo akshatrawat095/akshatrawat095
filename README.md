@@ -14,9 +14,14 @@ Undergraduate Computer Science & Engineering student focusing on Linux kernel in
 | Subsystem | Driver / File | Change | Upstream Status |
 | :--- | :--- | :--- | :--- |
 | **RTC** | `drivers/rtc/rtc-rv3028.c` | Buffer safety: `sprintf()` → `sysfs_emit()` | **Merged by Linus Torvalds** ([`55bb5877494d`](https://github.com/torvalds/linux/commit/55bb5877494d6c99898b959aa593663ce4676f4e)) · `v7.4-rc1` |
+| **RTC** | `drivers/rtc/rtc-as3722.c` | Robustness: propagate `platform_get_irq()` errors | **Submitted** ([Mailing List](https://lore.kernel.org/linux-rtc/20261107160839.422-1-akshatrawat095@gmail.com/)) |
 | **LEDs** | `drivers/leds/led-class-flash.c` | Buffer safety: `sprintf()` → `sysfs_emit()` | **In Review** ([Mailing List](https://lore.kernel.org/linux-leds/20261101033427.442-1-akshatrawat095@gmail.com/)) · Passed Sashiko CI |
 
 #### Details
+
+- **ams AS3722 PMIC RTC Driver Bug Fix**  
+  * Added missing error handling for `platform_get_irq()` in `as3722_rtc_probe()` to properly propagate `-EPROBE_DEFER` when the parent PMIC interrupt domain is not yet initialized.
+  * Prevents probe deferral failure, negative IRQ logging, and invalid `devm_request_threaded_irq()` calls. Includes `Fixes:` tag and LTS stable backport designation. Tested clean with `checkpatch.pl --no-tree` (0 errors, 0 warnings).
 
 - **Micro Crystal RV-3028 RTC Driver Modernization**  
   * Replaced legacy `sprintf()` calls with buffer-safe `sysfs_emit()` in sysfs attribute callbacks (`timestamp0_show`, `timestamp0_count_show`) to enforce `PAGE_SIZE` boundary checking per `Documentation/filesystems/sysfs.rst`.
