@@ -4,7 +4,7 @@
 [![Mainline](https://img.shields.io/badge/Mainline_Status-Merged_by_Linus-success?style=flat-square&logo=git&logoColor=white)](https://github.com/torvalds/linux/commit/9b6f2eabc8371dea951c244f4aa9e013f36de9f8)
 [![C](https://img.shields.io/badge/C-C99%2FC11-00599C?style=flat-square&logo=c&logoColor=white)](https://kernel.org)
 [![Lore Archive](https://img.shields.io/badge/LKML-Public_Archive-orange?style=flat-square)](https://lore.kernel.org/all/?q=Akshat+Rawat)
-[![GPG](https://img.shields.io/badge/GPG-F88A3F0F0733C500-green?style=flat-square&logo=gnu-privacy-guard&logoColor=white)](https://keys.openpgp.org)
+[![GPG](https://img.shields.io/badge/GPG-F88A3F0F0733C500-green?style=flat-square&logo=gnu-privacy-guard&logoColor=white)](https://keys.openpgp.org/search?q=78D1E2AEE452FAD1DCFA313AF88A3F0F0733C500)
 
 Undergraduate Computer Science & Engineering student focusing on Linux kernel internals, device drivers, and low-level systems programming in C.
 
@@ -35,5 +35,5 @@ Undergraduate Computer Science & Engineering student focusing on Linux kernel in
 ### Links & Verification
 
 - **Upstream Patch Archive**: [lore.kernel.org/all/?q=Akshat+Rawat](https://lore.kernel.org/all/?q=Akshat+Rawat)
-- **PGP Key Fingerprint**: `78D1 E2AE E452 FAD1 DCFA 313A F88A 3F0F 0733 C500`
+- **PGP Key Fingerprint**: [`78D1 E2AE E452 FAD1 DCFA  313A F88A 3F0F 0733 C500`](https://keys.openpgp.org/search?q=78D1E2AEE452FAD1DCFA313AF88A3F0F0733C500)
 - **Email**: akshatrawat095@gmail.com
