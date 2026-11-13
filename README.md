@@ -15,12 +15,17 @@ Undergraduate Computer Science & Engineering student focusing on Linux kernel in
 | Subsystem | Driver / File | Change | Upstream Status |
 | :--- | :--- | :--- | :--- |
 | **RTC** | `drivers/rtc/rtc-rv3028.c` | Buffer safety: `sprintf()` → `sysfs_emit()` | **Merged by Linus Torvalds** ([`55bb5877494d`](https://github.com/torvalds/linux/commit/55bb5877494d6c99898b959aa593663ce4676f4e)) · `v7.4-rc1` |
+| **LEDs** | `drivers/leds/led-class-flash.c` | Buffer safety: `sprintf()` → `sysfs_emit()` (5 attributes) | **Applied by Lee Jones** ([`d9357f26370b`](https://git.kernel.org/pub/scm/linux/kernel/git/lee/leds.git/commit/?h=for-leds-next&id=d9357f26370b374cd18df38141600c80f5711c5e)) · `for-leds-next` (`v7.5`) |
 
 #### Details
 
 - **Micro Crystal RV-3028 RTC Driver Modernization**  
   * Replaced legacy `sprintf()` calls with buffer-safe `sysfs_emit()` in sysfs attribute callbacks (`timestamp0_show`, `timestamp0_count_show`) to enforce `PAGE_SIZE` boundary checking per `Documentation/filesystems/sysfs.rst`.
   * Reviewed and applied by RTC maintainer Alexandre Belloni, prompting a subsequent subsystem-wide cleanup sweep across 10 sibling RTC drivers. Merged into mainline for **Linux 7.4-rc1** by **Linus Torvalds** ([Merge Commit `9b6f2eabc837`](https://github.com/torvalds/linux/commit/9b6f2eabc8371dea951c244f4aa9e013f36de9f8)).
+
+- **LED Flash Class Sysfs Modernization**  
+  * Migrated 5 sysfs show callbacks (`flash_brightness_show`, `max_flash_brightness_show`, `flash_strobe_show`, `flash_timeout_show`, and `max_flash_timeout_show`) from `sprintf()` to `sysfs_emit()` to guarantee `PAGE_SIZE` buffer safety.
+  * Reviewed and applied by LED subsystem maintainer Lee Jones into [`for-leds-next`](https://git.kernel.org/pub/scm/linux/kernel/git/lee/leds.git/commit/?h=for-leds-next&id=d9357f26370b374cd18df38141600c80f5711c5e) ([Commit `d9357f26370b`](https://git.kernel.org/pub/scm/linux/kernel/git/lee/leds.git/commit/?h=for-leds-next&id=d9357f26370b374cd18df38141600c80f5711c5e)) queued for the upcoming **Linux 7.5** merge window.
 
 ---
 
